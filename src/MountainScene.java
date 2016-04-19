@@ -1,5 +1,6 @@
 import uwcse.graphics.*; // access the graphics utilities in the uw library
 import java.awt.Color; // access the Color class
+import snowman.Snowman;
 
 /**
  * <p>
