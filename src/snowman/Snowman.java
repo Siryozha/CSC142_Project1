@@ -171,22 +171,47 @@ public class Snowman {
     }
 
     private void addArms(){
+
         window.add(new Line(
-                grid.getX(0,8),
-                grid.getY(0,8),
                 grid.getX(0,6) - grid.spanX(1),
                 grid.getY(0,5),
+                grid.getX(0,12),
+                grid.getY(0,12),
                 Color.black
 
         ));
 
+        //left hand
         window.add(new Line(
                 grid.getX(0,6) + grid.spanX(1),
                 grid.getY(0,6),
                 grid.getX(0,6) - grid.spanX(2),
                 grid.getY(0,6) + grid.spanY(1)/2
         ));
+
+        window.add(new Line(
+                grid.getX(10,6) + grid.spanX(2),
+                grid.getY(10,6) ,
+                grid.getX(10,12),
+                grid.getY(10,12),
+                Color.black
+
+        ));
+
+        //right hand
+        window.add(new Line(
+                grid.getX(10,7),
+                grid.getY(9,7),
+                grid.getX(10,7) + grid.spanX(3),
+                grid.getY(10,7)
+        ));
     }
+
+    public static void main(String[] args){
+        new Snowman(100,100,1,new GWindow(500,1000));
+
+    }
+
 
 
 }
