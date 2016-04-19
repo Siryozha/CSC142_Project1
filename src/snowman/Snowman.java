@@ -1,4 +1,4 @@
-package com.hams.snowman;
+package snowman;
 
 /**
  * Created by Aaron Hand on 4/18/16.

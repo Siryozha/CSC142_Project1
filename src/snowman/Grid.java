@@ -1,4 +1,4 @@
-package com.hams.snowman;
+package snowman;
 
 import java.awt.*;
 
