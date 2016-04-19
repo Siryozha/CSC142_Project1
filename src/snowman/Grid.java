@@ -62,23 +62,15 @@ public class Grid {
      * @return int
      */
 
-    public int getX(int x, int y) {
-        return (int)points[x][y].getX();
-    }
-    public int getY(int x, int y) {
-        return (int)points[x][y].getY();
-    }
+    public int getX(int x, int y) {return (int)points[x][y].getX();}
+    public int getY(int x, int y) {return (int)points[x][y].getY();}
 
     /**
      * Return single cell width or height
      * Used for padding
      */
 
-    public int spanX(int x){
-        return x * (width / 10);
-    }
-    public int spanY(int y){
-        return y * (height / 20);
-    }
+    public int spanX(int x){return x * (width / 10);}
+    public int spanY(int y){return y * (height / 20);}
 
 }
