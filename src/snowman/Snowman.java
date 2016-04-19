@@ -3,6 +3,11 @@ package snowman;
 /**
  * Created by Aaron Hand on 4/18/16.
  * Project: Project1
+ *
+ * Draws a snowman given it's location, scale, and window.
+ *
+ * TODO: Possibly break parts up into separate objects.
+ *
  */
 
 import uwcse.graphics.*;
@@ -16,9 +21,15 @@ public class Snowman {
     private Grid grid;
     private GWindow window;
 
+    /**
+     * @param x point
+     * @param y point
+     * @param scale factor (1 = 100px)
+     * @param window to draw on
+     */
     public Snowman(int x, int y, double scale, GWindow window){
         this.window = window;
-        grid = new Grid(x,y,(int)(200 * scale)); //size of snowman (default 200 * scale)
+        grid = new Grid(x,y,(int)(100 * scale)); //size of snowman (default 100 * scale)
         addTorso();
         addHead();
         addArms();
@@ -121,6 +132,7 @@ public class Snowman {
                 true
         ));
 
+
         /**
          * HAT
          */
@@ -190,9 +202,9 @@ public class Snowman {
         ));
 
         window.add(new Line(
-                grid.getX(10,6) + grid.spanX(2),
-                grid.getY(10,6) ,
-                grid.getX(10,12),
+                grid.getX(10,5) + grid.spanX(2),
+                grid.getY(10,5) ,
+                grid.getX(10,12) + grid.spanX(1),
                 grid.getY(10,12),
                 Color.black
 
@@ -200,8 +212,8 @@ public class Snowman {
 
         //right hand
         window.add(new Line(
-                grid.getX(10,7),
-                grid.getY(9,7),
+                grid.getX(10,6),
+                grid.getY(10,6),
                 grid.getX(10,7) + grid.spanX(3),
                 grid.getY(10,7)
         ));

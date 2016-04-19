@@ -5,11 +5,26 @@ import java.awt.*;
 /**
  * Created by Aaron Hand on 4/18/16.
  * Project: Project1
+ *
+ *
+ * This class is just to make drawing a little more manageable by
+ * dividing up the canvas into a grid.
+ *
+ * getX and getY will return the pixel values of cell intersection
+ * e.g.
+ * grid.getX(1,2) = 23
+ * grid.getY(1,2) = 46
+ *
+ * spanX and spanY will return the calculated cell sizes in order to adjust points
+ * e.g.
+ * grid.getX(1,2) - spanX(2)
+ *
  */
+
 public class Grid {
+
     private int width,height,xPt,yPt;
     private Point[][] points;
-
 
     /**
      *
@@ -44,7 +59,7 @@ public class Grid {
      *
      * @param x location
      * @param y location
-     * @return Point
+     * @return int
      */
 
     public int getX(int x, int y) {
