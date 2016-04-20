@@ -28,8 +28,13 @@ public class MountainScene {
 		// window terminates the application
 
 		// Background (cyan here)
-		Rectangle bgnd = new Rectangle(0, 0, window.getWindowWidth(), window
-				.getWindowHeight(), Color.cyan, true);
+		Rectangle bgnd = new Rectangle(
+                0, 0,
+                window.getWindowWidth(),
+                window.getWindowHeight(),
+                Color.cyan,
+                true);
+
 		window.add(bgnd);
 
 		// Create the scene elements
@@ -42,8 +47,6 @@ public class MountainScene {
 	/**
 	 * Entry point of the program
 	 */
-	public static void main(String[] args) {
-		new MountainScene();
-	}
+	public static void main(String[] args) {new MountainScene();}
 
 }
