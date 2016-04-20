@@ -13,7 +13,11 @@ package snowman;
 import uwcse.graphics.*;
 import uwcse.graphics.Rectangle;
 
+import javax.swing.text.NumberFormatter;
 import java.awt.*;
+import java.text.FieldPosition;
+import java.text.NumberFormat;
+import java.text.ParsePosition;
 import java.util.Random;
 
 public class Snowman {
@@ -33,8 +37,6 @@ public class Snowman {
         addTorso();
         addHead();
         addArms();
-
-
     }
 
     private void addHead(){
@@ -154,10 +156,11 @@ public class Snowman {
                 Color.black,
                 true
         ));
-
-        System.out.println(grid.getX(6,6));
-        System.out.println(grid.getY(6,6));
     }
+
+    /**
+     * BODY
+     */
 
     private void addTorso(){
         window.add(new Oval(
@@ -179,11 +182,15 @@ public class Snowman {
                     true
             ));
         }
-
     }
+
+    /**
+     * ARMS
+     */
 
     private void addArms(){
 
+        //left arm
         window.add(new Line(
                 grid.getX(0,6) - grid.spanX(1),
                 grid.getY(0,5),
@@ -201,6 +208,7 @@ public class Snowman {
                 grid.getY(0,6) + grid.spanY(1)/2
         ));
 
+        //right arm
         window.add(new Line(
                 grid.getX(10,5) + grid.spanX(2),
                 grid.getY(10,5) ,
@@ -218,12 +226,4 @@ public class Snowman {
                 grid.getY(10,7)
         ));
     }
-
-    public static void main(String[] args){
-        new Snowman(100,100,1,new GWindow(500,1000));
-
-    }
-
-
-
 }

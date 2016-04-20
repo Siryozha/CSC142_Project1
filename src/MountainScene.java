@@ -23,18 +23,20 @@ public class MountainScene {
 
 		// The graphics window
 		// The window is by default 500 wide and 400 high
-		this.window = new GWindow("Mountain scene");
-		this.window.setExitOnClose(); // so that a click on the close box of the
+		window = new GWindow("Mountain scene",600,400);
+		window.setExitOnClose(); // so that a click on the close box of the
 		// window terminates the application
 
 		// Background (cyan here)
 		Rectangle bgnd = new Rectangle(0, 0, window.getWindowWidth(), window
 				.getWindowHeight(), Color.cyan, true);
-		this.window.add(bgnd);
+		window.add(bgnd);
 
 		// Create the scene elements
 		// e.g. a tree in the lower left area 1.5 times the normal size
-		new Tree(100, 300, 1.5, this.window);
+		new Tree(100, 300, 1.5, window);
+		new Snowman(160,300,.5,window);
+
 	}
 
 	/**
