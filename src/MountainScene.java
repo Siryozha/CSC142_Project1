@@ -40,7 +40,8 @@ public class MountainScene {
 		// Create the scene elements
 		// e.g. a tree in the lower left area 1.5 times the normal size
 		new Tree(100, 300, 1.5, window);
-		new Snowman(160,300,.5,window);
+		new Snowman(160, 300, .5, window);
+		new CableCar(300, 200, 1, window);
 
 	}
 
