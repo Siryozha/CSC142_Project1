@@ -1,4 +1,9 @@
 ##Overview
+####Contributors
+- Mahonri (Tree)(?)
+- Huiying (?)
+- Serge (?)
+-  Aaron (SnowMan)
 In this project, you will complete several classes to draw a picture in a graphics window. The purpose of this assignment is to give you experience writing classes in Java and using Eclipse.
 
 ###To do
