@@ -42,6 +42,7 @@ public class MountainScene {
 		new Tree(100, 300, 1.5, window);
 		new Snowman(160, 300, .5, window);
 		new CableCar(300, 200, 1, window);
+		new MountainGoat(400, 100, 1, window);
 
 	}
 
