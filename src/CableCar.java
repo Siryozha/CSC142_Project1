@@ -10,7 +10,7 @@ import java.awt.Color; // access the Color class
 public class CableCar {
 
 	// Your instance fields go here
-	private int x, y;
+	private int x, y, startX, startY, width, height;
 	private double scale;
 	GWindow window;
 
@@ -29,18 +29,87 @@ public class CableCar {
 		this.y = y;
 		this.scale = scale;
 		this.window = window;
+		
+		/** 
+		 * Useful calculations for overall size and 
+		 * top left corner of car 
+		 */
+		width = (int)(100 * scale);
+		height = (int)(60 * scale);
+		startX = x-(width/2);
+		startY = y-(height/2);
 		// The details of the drawing are in a private method
-		this.Draw();
+		Draw();
+	}
+	
+	/**
+	 * Draw all our pieces, divided up to 
+	 * keep each function small
+	 */
+	private void Draw(){
+		DrawBody();
+		DrawWindows();
+		DrawHangers();
+		DrawCables();
 	}
 
-	/** Draw a cable car at location (x,y) 
-	 *  default size will be 100px*60px */
-	private void Draw() {
-		int width = (int)(100 * scale);
-		int height = (int)(60 * scale);
-		int startX = x-(width/2);
-		int startY = y-(height/2);
-		Rectangle body = new Rectangle(startX, startY, width, height, Color.gray, true);
+	/** Draw the body, using attributes calculated in constructor
+	 *  default size will be 100px*60px 
+	 */
+	private void DrawBody() {
+		Rectangle body = new Rectangle(startX, startY, width, height, Color.lightGray, true);
 		window.add(body);
+	}
+	
+	/**
+	 * Draw three windows across top of body
+	 * each window will be a quarter of the width
+	 * and half the height of the body
+	 */
+	private void DrawWindows(){
+		int windowWidth = width / 4;
+		int windowHeight = height / 2;
+		int spacer = width / 3; // used for spacing windows out
+		for (int i = 0; i < 3; i++){
+			int windowX = startX + spacer*i + (int)(5*scale); 
+			int windowY = startY + (int)(5*scale);
+			Rectangle w = new Rectangle(windowX, windowY, windowWidth, windowHeight, Color.white, true);
+			window.add(w);
+		}
+	}
+	
+	/**
+	 * The cable hanger will be a polygon shape
+	 * stretching above the body
+	 */
+	private void DrawHangers(){
+		int startPointX = startX + (width /2); // start in middle of car
+		Polygon hanger = new Polygon(Color.gray, true);
+		hanger.addPoint(startPointX, startY);
+		hanger.addPoint(startPointX + (width/10), startY - (height/2));
+		hanger.addPoint(startPointX - (width/10), startY - (height/2));
+		hanger.addPoint(startPointX - (width/10), startY - (2*height/3));
+		hanger.addPoint(startPointX + (width/5), startY - (2*height/3));
+		hanger.addPoint(startPointX + (width/5), startY - (height/2));
+		hanger.addPoint(startPointX + (width/10), startY);
+		
+		window.add(hanger);
+		
+		
+	}
+	
+	/**
+	 * a diagonal line stretching across screen, meeting up with point
+	 */
+	private void DrawCables(){
+		int windowHeight = window.getWindowHeight();
+		int windowWidth = window.getWindowWidth();
+		
+		int hangerPointX = (startX + (width / 2)) - (width/10);
+		int hangerPointY = startY - (height / 2);
+		
+		Line cable = new Line(hangerPointX-windowWidth, hangerPointY+(2*height), hangerPointX+windowWidth, hangerPointY-(2*height));
+		//Line cable2 = new Line(0, hangerPointY+(2*height), hangerPointX, hangerPointY);
+		window.add(cable);
 	}
 }
