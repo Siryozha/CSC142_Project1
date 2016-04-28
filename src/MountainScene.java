@@ -39,12 +39,17 @@ public class MountainScene {
 
 		// Create the scene elements
 		// e.g. a tree in the lower left area 1.5 times the normal size
+		new MountainBackDrop(100,50,1,window);
+		new MountainBackDrop(200,75,1.3,window);
+		new MountainBackDrop(450,50,1.5,window);
+		new MountainBackDrop(350,25,1.1,window);
+		
 		new CableCar(100, 100, 1, window);
 		new CableCar(200, 200, 1.3, window);
 		new Tree(100, 300, 1.5, window);
 		new Snowman(160, 300, .5, window);
 		
-		new MountainGoat(400, 100, 1, window);
+		new MountainGoat(400, 350, 0.5, window);
 
 	}
 
